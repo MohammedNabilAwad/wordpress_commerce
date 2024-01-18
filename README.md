@@ -1,6 +1,6 @@
 ## Wordpress Commerce
 
-Wordpress Commerce Integration for ERPNext
+Wordpress commerce integration with ERPNext
 
 #### License
 

@@ -3,7 +3,7 @@ name = "wordpress_commerce"
 authors = [
     { name = "Mohammed Awadh", email = "mohammed.n.awadh@gmail.com"}
 ]
-description = "Wordpress Commerce Integration for ERPNext"
+description = "Wordpress commerce integration with ERPNext"
 requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]

@@ -1,9 +1,10 @@
 app_name = "wordpress_commerce"
 app_title = "Wordpress Commerce"
 app_publisher = "Mohammed Awadh"
-app_description = "Wordpress Commerce Integration for ERPNext"
+app_description = "Wordpress commerce integration with ERPNext"
 app_email = "mohammed.n.awadh@gmail.com"
 app_license = "MIT"
+fixtures = ["Custom Field"]
 
 # Includes in <head>
 # ------------------
@@ -62,7 +63,7 @@ app_license = "MIT"
 # ------------
 
 # before_install = "wordpress_commerce.install.before_install"
-# after_install = "wordpress_commerce.install.after_install"
+after_install = "wordpress_commerce.after_install.create_weight_uom"
 
 # Uninstallation
 # ------------
@@ -116,6 +117,12 @@ app_license = "MIT"
 # ---------------
 # Hook on document methods and events
 
+doc_events = {
+	"Bin": {
+		"on_update": "wordpress_commerce.sync_products.trigger_update_item_stock"
+	}
+}
+
 # doc_events = {
 #	"*": {
 #		"on_update": "method",
@@ -126,6 +133,12 @@ app_license = "MIT"
 
 # Scheduled Tasks
 # ---------------
+
+scheduler_events = {
+	"hourly": [
+		"wordpress_commerce.api.check_hourly_sync"
+	]
+}
 
 # scheduler_events = {
 #	"all": [
